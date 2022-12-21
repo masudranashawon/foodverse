@@ -46,7 +46,10 @@ const Navbar = ({
             className='text-gray-400 hover:text-gray-600 duration-300'
           >
             Favourites
-            <span className='favourites-count text-sky-400 font-bold'>(0)</span>
+            <span className='favourites-count text-sky-400 font-bold'>
+              {" "}
+              (0)
+            </span>
           </NavLink>
         </li>
       </ul>
