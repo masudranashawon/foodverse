@@ -5,11 +5,7 @@ const RecipeItem = () => {
   const { id } = useParams();
 
   const { data: recipe, loading, error } = useFetch(id);
-
-  if (recipe.recipe) {
-    console.log(recipe.recipe.title);
-  }
-
+  console.log(recipe);
   return <div>RecipeItem</div>;
 };
 

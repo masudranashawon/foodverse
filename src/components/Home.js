@@ -11,10 +11,8 @@ const Home = ({ recipes, loading, error }) => {
 
       {loading && <p className='text-2xl'>{error ? error : "Loading..."}</p>}
 
-      {recipes.length > 0 &&
-        recipes.map((recipe) => (
-          <Recipe recipe={recipe} key={recipe.recipe_id} />
-        ))}
+      {recipes?.length > 0 &&
+        recipes.map((recipe) => <Recipe recipe={recipe} key={recipe.id} />)}
     </div>
   );
 };
