@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Favourites from "./components/Favourites";
@@ -14,14 +14,17 @@ const App = () => {
   const [error, setError] = useState("");
 
   const searchField = useRef(null);
+  const navigator = useNavigate();
 
   const searchHandler = (e) => {
     e.preventDefault();
 
     getData(searchQuery);
 
-    setSearchQuery("");
     searchField.current.blur();
+    navigator("/");
+    setSearchQuery("");
+    setError("");
     setRecipes([]);
   };
 
