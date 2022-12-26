@@ -5,6 +5,7 @@ const Navbar = ({
   searchQuery,
   setSearchQuery,
   searchField,
+  savedItems,
 }) => {
   const navActiveStyle = ({ isActive }) => {
     return {
@@ -47,8 +48,7 @@ const Navbar = ({
           >
             Favourites
             <span className='favourites-count text-sky-400 font-bold'>
-              {" "}
-              (0)
+              ({savedItems.length})
             </span>
           </NavLink>
         </li>
