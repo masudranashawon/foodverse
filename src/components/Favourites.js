@@ -3,9 +3,13 @@ import Recipe from "./Recipe";
 const Favourites = ({ savedItems }) => {
   return (
     <div className='favourites-section'>
-      {savedItems.length === 0 && (
+      {savedItems.length === 0 ? (
         <p className='text-2xl text-center font-semibold text-rose-300 leading-normal py-8 lg:text-4xl'>
           Your favourite list is empty!
+        </p>
+      ) : (
+        <p className='text-2xl text-center font-semibold text-rose-300 leading-normal py-8 lg:text-4xl'>
+          Your favourite recipe{savedItems.length > 1 && "s"}!
         </p>
       )}
 

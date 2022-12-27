@@ -1,13 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
+
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import RecipeItem from "./components/RecipeItem";
 import Favourites from "./components/Favourites";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
-import RecipeItem from "./components/RecipeItem";
 
 const App = () => {
+  //This function for smooth scrolling
+  useSmoothScroll();
+
   const [searchQuery, setSearchQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,6 +38,7 @@ const App = () => {
     setRecipes([]);
   };
 
+  //Fetching all recipe data from API
   const getData = async (searchQuery) => {
     try {
       setLoading(true);
@@ -49,6 +55,7 @@ const App = () => {
     }
   };
 
+  //Checking and set local storage data
   const checkLocalData = (data) => {
     const localData = JSON.parse(localStorage.getItem("recipes"));
     const existedData = localData?.some((item) => item.id === data.id);
@@ -61,6 +68,7 @@ const App = () => {
     }
   };
 
+  //Save to Favorites
   const favouriteHadler = (id) => {
     fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
       .then((res) => res.json())
@@ -69,6 +77,7 @@ const App = () => {
     navigator("/favourites");
   };
 
+  //Showing Local storage data
   useEffect(() => {
     localStorage.setItem("recipes", JSON.stringify(savedItems));
   }, [savedItems]);

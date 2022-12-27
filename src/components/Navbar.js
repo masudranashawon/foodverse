@@ -35,7 +35,7 @@ const Navbar = ({
             style={navActiveStyle}
             end
             to='/'
-            className='text-gray-400 hover:text-gray-600 duration-300'
+            className='text-gray-400 hover:text-gray-600 duration-300 outline-none'
           >
             Home
           </NavLink>
@@ -44,10 +44,10 @@ const Navbar = ({
           <NavLink
             style={navActiveStyle}
             to='/favourites'
-            className='text-gray-400 hover:text-gray-600 duration-300'
+            className='text-gray-400 hover:text-gray-600 duration-300 outline-none'
           >
             Favourites
-            <span className='favourites-count text-sky-400 font-bold'>
+            <span className='favourites-count text-sky-400 font-bold ml-1'>
               ({savedItems.length})
             </span>
           </NavLink>

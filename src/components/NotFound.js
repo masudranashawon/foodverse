@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FryingPan from "./FryingPan";
+
 const NotFound = () => {
   return (
     <div className='not-found-section container mx-auto py-8 flex flex-col items-center gap-5'>
